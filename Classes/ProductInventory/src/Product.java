@@ -8,6 +8,7 @@ public class Product{
     public Product(String product_name, double value){
             this.product_name = product_name;
             this.value = value;
+            this.quantity = 1;
         }
 
     public Product(String product_name, double value, int init_quantity){

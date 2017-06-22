@@ -25,11 +25,34 @@ public class Inventory{
         }
     }
 
-    public void addProduct(String product_name, double value, int init_quantity){
+    public void addInventory(int prod_id, int quantity){
+        Product item = product_listing.get(prod_id);
+        if (item == null){
+            System.out.println("ERROR: Product ID was not found.");
+            return;
+        }else{
+            item.addItems(quantity);
+            updateTotalValue();
+            //System.out.println(this.total_value);
+        }
+    }
+
+    public void addNewProduct(String product_name, double value){
+        Product new_product = new Product(product_name, value);
+        prod_counter++;
+        product_listing.put(prod_counter, new_product);
+        System.out.println((product_listing.get(prod_counter).getName()));
+        updateTotalValue();
+        System.out.println(this.total_value);
+    }
+
+    public void addNewProduct(String product_name, double value, int init_quantity){
         Product new_product = new Product(product_name, value, init_quantity);
         prod_counter++;
         product_listing.put(prod_counter, new_product);
         System.out.println((product_listing.get(prod_counter).getName()));
+        updateTotalValue();
+        System.out.println(this.total_value);
     }
 
     public String getName(){
