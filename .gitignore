@@ -1,3 +1,5 @@
+.idea/*
+*.class
 *.py[cod]
 
 # C extensions
